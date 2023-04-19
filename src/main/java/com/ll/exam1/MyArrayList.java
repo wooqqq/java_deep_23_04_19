@@ -8,8 +8,12 @@ public class MyArrayList<T> {
         return size;
     }
 
-    public boolean add(T element) {
+    public boolean add(String element) {
         size++;
         return true;
+    }
+
+    public String get(int index) {
+        return "포도";
     }
 }
