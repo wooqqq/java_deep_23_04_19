@@ -51,4 +51,19 @@ public class MyHashMapTest {
         map.put("영희", 23);
         map.put("영수", 23);
     }
+
+    @Test
+    @DisplayName("put, replace")
+    void t05() {
+        MyHashMap<String, Integer> map = new MyHashMap<>();
+
+        map.put("철수", 22);
+        map.put("영희", 23);
+
+        assertThat(
+                map.put("영희", 24)
+        ).isEqualTo(23);
+
+        assertThat(map.size()).isEqualTo(2);
+    }
 }

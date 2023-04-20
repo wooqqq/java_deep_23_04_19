@@ -28,6 +28,15 @@ public class MyHashMap<K, V> {
     }
 
     public V put(K key, V value) {
+        // keys 배열에서 검색
+        int indexOfKey = indexOfKey(key);
+
+        if (indexOfKey != -1) {
+            V old = (V) entries[indexOfKey].value;
+            entries[indexOfKey].value = value;
+            return old;
+        }
+
         makeNewArrayIfNotEnough();
 
         entries[size] = new Entry<>(key, value);
