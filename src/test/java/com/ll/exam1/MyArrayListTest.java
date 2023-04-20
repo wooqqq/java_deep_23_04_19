@@ -166,4 +166,20 @@ public class MyArrayListTest {
         assertThat(list.get(2)).isEqualTo("Element2");
         assertThat(list.get(3)).isEqualTo("Element3");
     }
+
+    @Test
+    @DisplayName("set")
+    void t13() {
+        MyArrayList<String> list = new MyArrayList<>();
+        list.add("Element1"); // 0
+        list.add("Element2"); // 1
+        list.add("Element3"); // 2
+
+        assertThat(list.set(0, "Element4")).isEqualTo("Element1");
+        assertThat(list.size()).isEqualTo(3);
+
+        assertThat(list.get(0)).isEqualTo("Element4");
+        assertThat(list.get(1)).isEqualTo("Element2");
+        assertThat(list.get(2)).isEqualTo("Element3");
+    }
 }
