@@ -1,10 +1,8 @@
 package com.ll.exam1;
 
-import java.sql.Struct;
-
 public class MyArrayList<T> {
     public boolean debug = false;
-    private String[] data;
+    private Object[] data;
 
     private int size = 0;
 
@@ -13,14 +11,14 @@ public class MyArrayList<T> {
     }
 
     public MyArrayList(int dataLength) {
-        data = new String[dataLength];
+        data = new Object[dataLength];
     }
 
     public int size() {
         return size;
     }
 
-    public boolean add(String element) {
+    public boolean add(Object element) {
         // 만약에 공간이 부족하면 새 data 객체를 만든다.
         makeNewDataIfNotEnough();
         data[size] = element;
@@ -39,7 +37,7 @@ public class MyArrayList<T> {
 
     private void makeNewData() {
         // 새 배열을 만든다. (새 업체를 만든다.)
-        String[] newData = new String[data.length * 2];
+        Object[] newData = new String[data.length * 2];
 
         // 기존 창고에 있던 물품들을 전부 새 창고로 옮긴다.
         for (int i = 0; i < data.length; i++) {
@@ -59,7 +57,7 @@ public class MyArrayList<T> {
         return size >= data.length;
     }
 
-    public String get(int index) {
+    public Object get(int index) {
         return data[index];
     }
 
