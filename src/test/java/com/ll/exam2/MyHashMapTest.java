@@ -86,4 +86,38 @@ public class MyHashMapTest {
 
         assertThat(map.size()).isEqualTo(1);
     }
+
+    @Test
+    @DisplayName("containsKey")
+    void t07() {
+        MyHashMap<String, Integer> map = new MyHashMap<>();
+
+        map.put("철수", 22);
+        map.put("영희", 23);
+
+        assertThat(
+                map.containsKey("영희")
+        ).isTrue();
+
+        assertThat(
+                map.containsKey("영숙")
+        ).isFalse();
+    }
+
+    @Test
+    @DisplayName("containsValue")
+    void t08() {
+        MyHashMap<String, Integer> map = new MyHashMap<>();
+
+        map.put("철수", 22);
+        map.put("영희", 23);
+
+        assertThat(
+                map.containsValue(22)
+        ).isTrue();
+
+        assertThat(
+                map.containsValue(24)
+        ).isFalse();
+    }
 }
