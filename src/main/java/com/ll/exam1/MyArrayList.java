@@ -1,5 +1,7 @@
 package com.ll.exam1;
 
+import javax.print.attribute.standard.NumberOfInterveningJobs;
+
 public class MyArrayList<T> {
     public boolean debug = false;
     private Object[] data;
@@ -37,7 +39,7 @@ public class MyArrayList<T> {
 
     private void makeNewData() {
         // 새 배열을 만든다. (새 업체를 만든다.)
-        Object[] newData = new String[data.length * 2];
+        Object[] newData = new Object[data.length * 2];
 
         // 기존 창고에 있던 물품들을 전부 새 창고로 옮긴다.
         for (int i = 0; i < data.length; i++) {
@@ -57,11 +59,11 @@ public class MyArrayList<T> {
         return size >= data.length;
     }
 
-    public Object get(int index) {
-        return data[index];
+    public T get(int index) {
+        return (T) data[index];
     }
 
-    public int indexOf(String element) {
+    public int indexOf(T element) {
         for (int i = 0; i < data.length; i++) {
             if (element.equals(data[i])) return i;
         }
