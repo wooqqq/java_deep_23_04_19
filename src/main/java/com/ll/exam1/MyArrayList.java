@@ -3,7 +3,7 @@ package com.ll.exam1;
 import java.sql.Struct;
 
 public class MyArrayList<T> {
-    private String[] data = new String[2];
+    private String[] data = new String[100];
 
     private int size = 0;
 
