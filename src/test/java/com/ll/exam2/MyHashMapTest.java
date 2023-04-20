@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatNullPointerException;
 
 @TestMethodOrder(MethodOrderer.MethodName.class)
 public class MyHashMapTest {
@@ -65,5 +66,24 @@ public class MyHashMapTest {
         ).isEqualTo(23);
 
         assertThat(map.size()).isEqualTo(2);
+    }
+
+    @Test
+    @DisplayName("remove")
+    void t06() {
+        MyHashMap<String, Integer> map = new MyHashMap<>();
+
+        map.put("철수", 22);
+        map.put("영희", 23);
+
+        assertThat(
+                map.remove("영희")
+        ).isEqualTo(23);
+
+        assertThat(
+                map.remove("영숙")
+        ).isEqualTo(null);
+
+        assertThat(map.size()).isEqualTo(1);
     }
 }

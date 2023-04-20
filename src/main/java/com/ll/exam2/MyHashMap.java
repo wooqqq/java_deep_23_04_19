@@ -5,6 +5,23 @@ public class MyHashMap<K, V> {
     private int size = 0;
     private Entry[] entries;
 
+    public V remove(K key) {
+        int index = indexOfKey(key);
+
+        if (index == -1) return null;
+
+        V old = (V) entries[index].value;
+
+        // 앞에서부터 자리 이동
+        for (int i = index + 1; i <size; i++) {
+            entries[i - 1] = entries[i];
+        }
+
+        size--;
+
+        return old;
+    }
+
     private static class Entry<K, V> {
         K key;
         V value;
