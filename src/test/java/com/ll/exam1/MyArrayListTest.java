@@ -144,4 +144,26 @@ public class MyArrayListTest {
         assertThat(list.contains("사과 1")).isEqualTo(true);
         assertThat(list.contains("사과 2")).isEqualTo(false);
     }
+
+    @Test
+    @DisplayName("addAt")
+    void t12() {
+        MyArrayList<String> list = new MyArrayList<>();
+
+        list.add("Element1"); // 0번 좌석에 착석
+        list.add("Element2"); // 1번 좌석에 착석
+        list.add("Element3"); // 2번 좌석에 착석
+
+        list.add(1, "Element4");
+        // 2 => 3
+        // 1 => 2
+        // 1번 좌석에 착석
+
+        assertThat(list.size()).isEqualTo(4);
+
+        assertThat(list.get(0)).isEqualTo("Element1");
+        assertThat(list.get(1)).isEqualTo("Element4");
+        assertThat(list.get(2)).isEqualTo("Element2");
+        assertThat(list.get(3)).isEqualTo("Element3");
+    }
 }

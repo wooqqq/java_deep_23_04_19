@@ -31,6 +31,28 @@ public class MyArrayList<T> {
         return true;
     }
 
+    public boolean add(int index, T element) {
+        // 만약에 공간이 부족하면 새 data 객체를 만든다.
+        makeNewDataIfNotEnough();
+
+        // 해당 공간을 빈공간으로 만든다.
+        makeEmptyIndex(index);
+
+        data[index] = element;
+
+        size++;
+
+        return true;
+    }
+
+    private void makeEmptyIndex(int index) {
+        // 맨 뒤 승객부터 뒤로 1칸씩 이동
+
+        for (int i = size - 1; i >= index; i--) {
+            data[i + 1] = data[i];
+        }
+    }
+
     private void makeNewDataIfNotEnough() {
         // 먼저 공간이 부족한지 확인
         if (ifNotEnough()) {
