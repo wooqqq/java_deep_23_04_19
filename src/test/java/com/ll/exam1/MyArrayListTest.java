@@ -131,4 +131,17 @@ public class MyArrayListTest {
         assertThat(e0).isEqualTo(true);
         assertThat(e1).isEqualTo(false);
     }
+
+    @Test
+    @DisplayName("contains(\"사과 0\")")
+    void t11() {
+        MyArrayList<String> list = new MyArrayList<>(2);
+
+        IntStream.range(0, 2)
+                .forEach(index -> list.add("사과 %d".formatted(index)));
+
+        assertThat(list.contains("사과 0")).isEqualTo(true);
+        assertThat(list.contains("사과 1")).isEqualTo(true);
+        assertThat(list.contains("사과 2")).isEqualTo(false);
+    }
 }
