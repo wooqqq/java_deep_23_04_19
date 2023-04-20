@@ -41,4 +41,14 @@ public class MyHashMapTest {
         assertThat(ageOf철수).isEqualTo(22);
         assertThat(ageOf영희).isEqualTo(23);
     }
+
+    @Test
+    @DisplayName("배열 자동 증가")
+    void t04() {
+        MyHashMap<String, Integer> map = new MyHashMap<>();
+
+        map.put("철수", 22);
+        map.put("영희", 23);
+        map.put("영수", 23);
+    }
 }
