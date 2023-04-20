@@ -1,6 +1,7 @@
 package com.ll.exam1;
 
 import javax.print.attribute.standard.NumberOfInterveningJobs;
+import java.util.stream.IntStream;
 
 public class MyArrayList<T> {
     public boolean debug = false;
@@ -64,12 +65,20 @@ public class MyArrayList<T> {
     }
 
     public int indexOf(T element) {
-        for (int i = 0; i < data.length; i++) {
-            if (element.equals(data[i])) return i;
-        }
+//        for (int i = 0; i < data.length; i++) {
+//            if (element.equals(data[i])) return i;
+//        }
+//
+//        return -1;
 
-        return -1;
+        // 더 깔끔한 버전
+        return IntStream.range(0, size)
+                .filter(index -> element.equals(data[index]))
+                .findFirst()
+                .orElse(-1);
 
+        // 복잡한 연산까지 할 수 있는 버전
+        // 예를들어서 index와 element 에 대한 복합조건을 filter에 사용가능
 //                return IntStream.range(0, size)
 //                .mapToObj(index -> new Object[]{index, data[index]})
 //                .filter(arr -> element.equals(arr[1]))
