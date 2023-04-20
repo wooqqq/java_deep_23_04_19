@@ -30,6 +30,18 @@ public class MyHashMap<K, V> {
         return indexOfValue(value) != -1;
     }
 
+    public void clear() {
+        for (int i = 0; i < size; i++) {
+            entries[i] = null;
+        }
+
+        size = 0;
+    }
+
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
     private static class Entry<K, V> {
         K key;
         V value;
