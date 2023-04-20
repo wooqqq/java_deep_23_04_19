@@ -36,7 +36,9 @@ public class MyHashMapTest {
         map.put("영희", 23);
 
         int ageOf철수 = map.get("철수");
+        int ageOf영희 = map.get("영희");
 
         assertThat(ageOf철수).isEqualTo(22);
+        assertThat(ageOf영희).isEqualTo(23);
     }
 }
