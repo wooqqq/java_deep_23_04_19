@@ -26,4 +26,17 @@ public class MyHashMapTest {
 
         assertThat(map.size()).isEqualTo(2);
     }
+
+    @Test
+    @DisplayName("get 구현")
+    void t03() {
+        MyHashMap<String, Integer> map = new MyHashMap<>();
+
+        map.put("철수", 22);
+        map.put("영희", 23);
+
+        int ageOf철수 = map.get("철수");
+
+        assertThat(ageOf철수).isEqualTo(22);
+    }
 }
