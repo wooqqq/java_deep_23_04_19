@@ -3,6 +3,7 @@ package com.ll.exam1;
 import com.ll.TestUt;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.condition.DisabledOnOs;
 
 import java.util.stream.IntStream;
 
@@ -32,11 +33,14 @@ public class MyArrayListTest {
     void t03() {
         MyArrayList<String> list = new MyArrayList<>();
 
-        list.add("사과"); // data[0];
-        list.add("포도"); // data[1];
+        list.add("사과");
+        list.add("포도");
 
-        assertThat(list.get(0)).isEqualTo("사과"); // data[0];
-        assertThat(list.get(1)).isEqualTo("포도"); // data[1];
+        String e0 = (String) list.get(0);
+        String e1 = (String) list.get(1);
+
+        assertThat(e0).isEqualTo("사과");
+        assertThat(e1).isEqualTo("포도");
     }
 
     @Test
@@ -112,5 +116,20 @@ public class MyArrayListTest {
         list.add(false);
 
         assertThat(list.size()).isEqualTo(2);
+    }
+
+    @Test
+    @DisplayName("get(1)")
+    void t10() {
+        MyArrayList<Boolean> list = new MyArrayList<>();
+
+        list.add(true);
+        list.add(false);
+
+        boolean e0 = (boolean) list.get(0);
+        boolean e1 = (boolean) list.get(1);
+
+        assertThat(e0).isEqualTo(true);
+        assertThat(e1).isEqualTo(false);
     }
 }
