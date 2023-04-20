@@ -74,8 +74,6 @@ public class MyArrayListTest {
         MyArrayList<String> list = new MyArrayList<>();
         list.debug = true;
 
-        // IntStream.range(0, 10); = [0, ... 9] 까지의 int 스트림 발생
-        // 딱 1번 넘칠만큼의 데이터를 넣는다.
         IntStream.range(0, 100)
                 .forEach(index -> list.add("사과 %d".formatted(index)));
     }
@@ -86,9 +84,22 @@ public class MyArrayListTest {
         MyArrayList<String> list = new MyArrayList<>();
         list.debug = true;
 
-        // IntStream.range(0, 10); = [0, ... 9] 까지의 int 스트림 발생
-        // 딱 1번 넘칠만큼의 데이터를 넣는다.
         IntStream.range(0, 100)
                 .forEach(index -> list.add("사과 %d".formatted(index)));
+    }
+
+    @Test
+    @DisplayName("indexOf")
+    void t08() {
+        MyArrayList<String> list = new MyArrayList<>(100);
+
+        IntStream.range(0, 100)
+                .forEach(index -> list.add("사과 %d".formatted(index)));
+
+        assertThat(list.indexOf("사과 0")).isEqualTo(0);
+        assertThat(list.indexOf("사과 1")).isEqualTo(1);
+        assertThat(list.indexOf("사과 5")).isEqualTo(5);
+        assertThat(list.indexOf("사과 99")).isEqualTo(99);
+        assertThat(list.indexOf("사과 100")).isEqualTo(-1);
     }
 }

@@ -62,4 +62,19 @@ public class MyArrayList<T> {
     public String get(int index) {
         return data[index];
     }
+
+    public int indexOf(String element) {
+        for (int i = 0; i < data.length; i++) {
+            if (element.equals(data[i])) return i;
+        }
+
+        return -1;
+
+//                return IntStream.range(0, size)
+//                .mapToObj(index -> new Object[]{index, data[index]})
+//                .filter(arr -> element.equals(arr[1]))
+//                .mapToInt(arr -> (int)arr[0])
+//                .findFirst()
+//                .orElse(-1);
+    }
 }
