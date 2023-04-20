@@ -53,6 +53,19 @@ public class MyArrayList<T> {
         return old;
     }
 
+    public T remove(int index) {
+        T old = (T) data[index];
+
+        // 앞에서부터 자리 이동
+        for (int i = index + 1; i < size; i++) {
+            data[i - 1] = data[i];
+        }
+
+        size--;
+
+        return old;
+    }
+
     private void makeEmptyIndex(int index) {
         // 맨 뒤 승객부터 뒤로 1칸씩 이동
 
