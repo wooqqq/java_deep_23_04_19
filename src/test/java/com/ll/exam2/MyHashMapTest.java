@@ -15,4 +15,15 @@ public class MyHashMapTest {
         MyHashMap<String, Integer> map = new MyHashMap<>();
         assertThat(map.size()).isEqualTo(0);
     }
+
+    @Test
+    @DisplayName("put 구현")
+    void t02() {
+        MyHashMap<String, Integer> map = new MyHashMap<>();
+
+        assertThat(map.put("철수", 22)).isNull();
+        assertThat(map.put("영희", 23)).isNull();
+
+        assertThat(map.size()).isEqualTo(2);
+    }
 }
